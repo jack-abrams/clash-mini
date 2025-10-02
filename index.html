@@ -6,45 +6,103 @@
   <title>Clash Mini (Fan‑Made)</title>
   <meta name="description" content="A tiny Clash Royale–style fan-made game. Deployable to GitHub Pages." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Kanit:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <div id="app">
-    <header class="topbar">
-      <h1>Clash Mini <span class="badge">fan-made</span></h1>
-      <div class="controls">
-        <button id="startBtn" class="btn primary">Start</button>
-        <button id="pauseBtn" class="btn">Pause</button>
-        <button id="resetBtn" class="btn">Reset</button>
-        <label class="toggle">
-          <input type="checkbox" id="muteToggle">
-          <span>Mute</span>
-        </label>
-      </div>
-    </header>
-
-    <main class="stage-wrap">
-      <canvas id="game" width="1280" height="720" aria-label="game canvas"></canvas>
-
-      <div class="hud">
-        <div class="elixir">
-          <div class="bar"><div id="elixirFill"></div></div>
-          <div class="elixir-text"><span id="elixirText">0 / 10</span></div>
+    <div class="battle-shell">
+      <header class="battle-header">
+        <div class="player-slot enemy">
+          <div class="identity">
+            <span class="badge level">13</span>
+            <div class="meta">
+              <span class="name">AIDTROX</span>
+              <span class="clan">HOSTAR</span>
+            </div>
+          </div>
+          <div class="crowns">
+            <span class="crown filled"></span>
+            <span class="crown"></span>
+            <span class="crown"></span>
+          </div>
         </div>
 
-        <div class="hand" aria-label="player hand">
-          <div id="cards" class="cards"></div>
-          <div class="next-card" aria-hidden="true">
-            <span class="label">Next</span>
-            <div id="nextCard" class="card ghost"></div>
+        <div class="battle-timer">
+          <span class="time">2:03</span>
+          <span class="phase">Double Elixir</span>
+        </div>
+
+        <div class="player-slot player">
+          <div class="crowns">
+            <span class="crown"></span>
+            <span class="crown"></span>
+            <span class="crown"></span>
+          </div>
+          <div class="identity">
+            <div class="meta">
+              <span class="name">You</span>
+              <span class="clan">NO CLAN</span>
+            </div>
+            <span class="badge level">13</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="startBtn" class="btn primary" data-icon="▶" aria-label="Start battle">Start</button>
+          <button id="pauseBtn" class="btn" data-icon="Ⅱ" aria-label="Pause or resume">Pause</button>
+          <button id="resetBtn" class="btn" data-icon="↺" aria-label="Reset battle">Reset</button>
+          <label class="toggle" aria-label="Mute sound">
+            <input type="checkbox" id="muteToggle">
+            <span aria-hidden="true">🔇</span>
+          </label>
+        </div>
+      </header>
+
+      <main class="stage-wrap">
+        <div class="arena">
+          <canvas id="game" width="1280" height="720" aria-label="game canvas"></canvas>
+          <div class="arena-overlay" aria-hidden="true">
+            <div class="tower enemy princess left"></div>
+            <div class="tower enemy princess right"></div>
+            <div class="tower enemy king"></div>
+
+            <div class="tower player princess left"></div>
+            <div class="tower player princess right"></div>
+            <div class="tower player king"></div>
+
+            <div class="river"></div>
+            <div class="bridge left"></div>
+            <div class="bridge right"></div>
+          </div>
+        </div>
+      </main>
+
+      <div class="hud">
+        <div class="hud-inner">
+          <div class="elixir">
+            <div class="elixir-orb">
+              <span id="elixirText">0 / 10</span>
+            </div>
+            <div class="bar">
+              <div id="elixirFill"></div>
+            </div>
+          </div>
+
+          <div class="hand" aria-label="player hand">
+            <div id="cards" class="cards"></div>
+            <div class="next-card" aria-hidden="true">
+              <span class="label">Next</span>
+              <div id="nextCard" class="card ghost"></div>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <footer class="footer">
-      <p>Made for learning. Not affiliated with Supercell. Arena and troop artwork &copy; Supercell / RoyaleAPI asset mirror. <a href="https://github.com/" target="_blank" rel="noreferrer">Deploy to GitHub Pages</a>.</p>
+      <p>Made for learning. Not affiliated with Supercell. Arena and troop artwork &copy; Supercell / RoyaleAPI asset mirror.</p>
     </footer>
   </div>
 
