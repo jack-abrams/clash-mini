@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clash Mini (Fan‑Made)</title>
+  <meta name="description" content="A tiny Clash Royale–style fan-made game. Deployable to GitHub Pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>Clash Mini <span class="badge">fan-made</span></h1>
+      <div class="controls">
+        <button id="startBtn" class="btn primary">Start</button>
+        <button id="pauseBtn" class="btn">Pause</button>
+        <button id="resetBtn" class="btn">Reset</button>
+        <label class="toggle">
+          <input type="checkbox" id="muteToggle">
+          <span>Mute</span>
+        </label>
+      </div>
+    </header>
+
+    <main class="stage-wrap">
+      <canvas id="game" width="1280" height="720" aria-label="game canvas"></canvas>
+
+      <div class="hud">
+        <div class="elixir">
+          <div class="bar"><div id="elixirFill"></div></div>
+          <div class="elixir-text"><span id="elixirText">0 / 10</span></div>
+        </div>
+
+        <div id="cards" class="cards"></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Made for learning. Not affiliated with Supercell. Art is just shapes. <a href="https://github.com/" target="_blank" rel="noreferrer">Deploy to GitHub Pages</a>.</p>
+    </footer>
+  </div>
+
+  <script type="module" src="./js/game.js"></script>
+</body>
+</html>
